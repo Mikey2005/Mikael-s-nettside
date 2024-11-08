@@ -1,0 +1,113 @@
+/* Nullstiller margin og padding for å sikre at layouten er konsistent */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Setter standard font for hele siden */
+}
+
+/* Hovedcontainer som holder alle seksjoner */
+.container {
+    width: 100%; /* Sørger for at containeren tar opp hele bredden av siden */
+    display: flex; /* Aktiverer flexbox for enkel justering */
+    flex-direction: column; /* Stabler elementene vertikalt */
+}
+
+/* Menylinje øverst på siden */
+.menu-bar {
+    display: flex; /* Bruker flexbox for horisontal justering */
+    align-items: center; /* Sentraliserer innholdet vertikalt */
+    justify-content: space-evenly; /* Fordeler plass mellom tittelen og knappene */
+    width: 100%; /* Gjør menylinjen like bred som hele siden */
+    padding: 25px; /* Legger til plass rundt innholdet i menylinjen */
+    background-color: #000; /* Setter bakgrunnsfargen til svart */
+    color: #fff; /* Setter tekstfargen til hvit */
+    position: fixed; /* Holder menylinjen fast på toppen av siden når du blar nedover */
+    top: 0; /* Plasserer menylinjen helt øverst på siden */
+    box-sizing: border-box; /* Inkluderer padding i elementets totale bredde og høyde */
+    z-index: 1000; /* Sørger for at menylinjen er over annet innhold */
+    margin: 0;
+    box-shadow: 5px 5px 15px rgb(21, 172, 241);
+}
+
+/* Stil for tittelen i menylinjen */
+.tittel-text {
+    border: none;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    font-size: 24px; /* Angir skriftstørrelse for tittelen */
+    margin: 0; /* Fjerner standard margin */
+}
+
+.profile-picture {
+    width: 100px; /* Gjør bildebanneret like bredt som siden */
+    height: 100px; /* Setter en fast høyde for bildebanneret */
+    border-radius: 100px;
+    display: flex; /* Bruker flexbox for sentrering av innholdet */
+    background-color: #000000; /* Setter bakgrunnsfargen til grå hvis bildet ikke lastes inn */
+    border-color: #afafaf;
+}
+
+/* Container for knappene i menylinjen */
+.button-group {
+    display: flex; /* Bruker flexbox for å plassere knappene på en linje */
+    gap: 15px; /* Legger til mellomrom mellom knappene */
+    border-radius: 20px; /* Legger en rund kant på knappene */
+    box-shadow: 2px 4px 6px#303030; /* legger en shaddow rundt knappene som gir en neon farge vibe */
+}
+
+/* Stil for knappene i menylinjen */
+.button-group button {
+    border: none; /* Fjerner standard kantlinje */
+    border-radius: 10px; /* Gjør hjørnene på knappene runde */
+    background: none; /* Fjerner standard bakgrunn */
+    color: white; /* Setter tekstfargen til hvit */
+    cursor: pointer; /* Endrer musepekeren til en hånd for å indikere klikkbarhet */
+    font-size: 20px; /* Angir skriftstørrelse for knappene */
+    padding: 10px 35px; /* Legger til plass inni knappene */
+    transition: padding 0.3s ease; /* Legger til en animasjon når man hover over knappen */
+}
+
+/* Hover-effekt for knappene */
+.button-group button:hover {
+    padding: 10px 40px; /* Øker padding når musen er over knappen */
+    border-radius: 20px;
+    box-shadow: 5px 10px 15px#125f72; /* legger en shaddow rundt knappene som gir en neon farge vibe */
+}
+
+/* Seksjon for bildebanneret */
+.main-section {
+    width: 100%; /* Gjør bildebanneret like bredt som siden */
+    height: 800px; /* Setter en fast høyde for bildebanneret */
+    margin-top: 80px; /* Legger til mellomrom under menylinjen */
+    display: flex; /* Bruker flexbox for sentrering av innholdet */
+    justify-content: center; /* Sentraliserer bildet horisontalt */
+    align-items: center; /* Sentraliserer bildet vertikalt */
+    background-color: #000000; /* Setter bakgrunnsfargen til grå hvis bildet ikke lastes inn */
+    border-color: #afafaf;
+}
+
+.get-started-box {
+    padding: 250px;
+    border-radius: 40px;
+    background-color: #125f72;
+    display: flex;
+    justify-content: left;
+}
+
+/* Info-seksjonen for tekstinnhold */
+.info-section {
+    padding: 40px; /* Legger til plass rundt tekstinnholdet */
+    text-align: center; /* Sentraliserer teksten */
+}
+
+/* Stil for overskrift i info-seksjonen */
+.info-section h2 {
+    margin-bottom: 20px; /* Legger til mellomrom under overskriften */
+}
+
+/* Stil for avsnitt i info-seksjonen */
+.info-section p {
+    font-size: 18px; /* Angir skriftstørrelse for avsnittsteksten */
+    line-height: 1.6; /* Øker linjeavstanden for bedre lesbarhet */
+}
