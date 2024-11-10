@@ -1,113 +1,179 @@
 /* Nullstiller margin og padding for å sikre at layouten er konsistent */
 body {
-    margin: 0;
-    padding: 0;
+    margin: 0; /* Fjerner standard margin */
+    padding: 0; /* Fjerner standard padding */
     font-family: Arial, sans-serif; /* Setter standard font for hele siden */
 }
 
 /* Hovedcontainer som holder alle seksjoner */
 .container {
-    width: 100%; /* Sørger for at containeren tar opp hele bredden av siden */
-    display: flex; /* Aktiverer flexbox for enkel justering */
-    flex-direction: column; /* Stabler elementene vertikalt */
+    width: 100%; /* Tar opp hele bredden av siden */
+    display: flex; /* Aktiverer flexbox for layoutjustering */
+    flex-direction: column; /* Plasserer elementene i en vertikal stabel */
 }
 
 /* Menylinje øverst på siden */
 .menu-bar {
     display: flex; /* Bruker flexbox for horisontal justering */
     align-items: center; /* Sentraliserer innholdet vertikalt */
-    justify-content: space-evenly; /* Fordeler plass mellom tittelen og knappene */
-    width: 100%; /* Gjør menylinjen like bred som hele siden */
-    padding: 25px; /* Legger til plass rundt innholdet i menylinjen */
+    justify-content: space-between; /* Plasserer profil til venstre og knappene til høyre */
+    width: 100%; /* Full bredde på menylinjen */
+    padding: 25px; /* Legger til plass rundt innholdet */
     background-color: #000; /* Setter bakgrunnsfargen til svart */
     color: #fff; /* Setter tekstfargen til hvit */
-    position: fixed; /* Holder menylinjen fast på toppen av siden når du blar nedover */
-    top: 0; /* Plasserer menylinjen helt øverst på siden */
-    box-sizing: border-box; /* Inkluderer padding i elementets totale bredde og høyde */
+    position: fixed; /* Holder menylinjen fast på toppen av siden */
+    top: 0; /* Plasserer menylinjen helt øverst */
+    box-sizing: border-box; /* Inkluderer padding i bredde/høyde */
     z-index: 1000; /* Sørger for at menylinjen er over annet innhold */
-    margin: 0;
-    box-shadow: 5px 5px 15px rgb(21, 172, 241);
+    box-shadow: 0px 0px 8px #125f72; /* Legger til skygge for dybdeeffekt */
 }
 
 /* Stil for tittelen i menylinjen */
-.tittel-text {
-    border: none;
-    background-color: black;
-    cursor: pointer;
-    color: white;
-    font-size: 24px; /* Angir skriftstørrelse for tittelen */
-    margin: 0; /* Fjerner standard margin */
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;  
+    flex-shrink: 0;
 }
 
-.profile-picture {
-    width: 100px; /* Gjør bildebanneret like bredt som siden */
-    height: 100px; /* Setter en fast høyde for bildebanneret */
-    border-radius: 100px;
-    display: flex; /* Bruker flexbox for sentrering av innholdet */
-    background-color: #000000; /* Setter bakgrunnsfargen til grå hvis bildet ikke lastes inn */
-    border-color: #afafaf;
+.profile-name {
+    font-size: 20px; /* Angir skriftstørrelse */
+    color: white; /* Hvit tekstfarge */
+    margin: 0; /* Fjerner standard margin */
+    white-space: nowrap;
+    flex-shrink: 0;
+    line-height: 1;
 }
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 1;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0px 0px 8px #125f72;
+    color: black;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 100;
+    width: 150px;
+}
+
+.dropdown-menu button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dropdown-menu button:hover {
+    background-color: #1b1b1b;
+}
+
+/* Profilbilde stil */
+.profile-picture {
+    width: 100px; /* Bredde på bildet */
+    height: 100px; /* Høyde på bildet */
+    border-radius: 50%; /* Gjør bildet rundt */
+    overflow: hidden; /* Skjuler deler av bildet som går utenfor sirkelen */
+}
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-picture img:hover {
+    cursor: pointer;
+
+}
+
 
 /* Container for knappene i menylinjen */
 .button-group {
-    display: flex; /* Bruker flexbox for å plassere knappene på en linje */
-    gap: 15px; /* Legger til mellomrom mellom knappene */
-    border-radius: 20px; /* Legger en rund kant på knappene */
-    box-shadow: 2px 4px 6px#303030; /* legger en shaddow rundt knappene som gir en neon farge vibe */
+    display: flex; /* Plasserer knappene horisontalt */
+    gap: 15px; /* Mellomrom mellom knappene */
 }
 
 /* Stil for knappene i menylinjen */
 .button-group button {
-    border: none; /* Fjerner standard kantlinje */
-    border-radius: 10px; /* Gjør hjørnene på knappene runde */
-    background: none; /* Fjerner standard bakgrunn */
-    color: white; /* Setter tekstfargen til hvit */
-    cursor: pointer; /* Endrer musepekeren til en hånd for å indikere klikkbarhet */
-    font-size: 20px; /* Angir skriftstørrelse for knappene */
-    padding: 10px 35px; /* Legger til plass inni knappene */
-    transition: padding 0.3s ease; /* Legger til en animasjon når man hover over knappen */
+    border: none; /* Fjerner kantlinje */
+    border-radius: 10px; /* Runde kanter på knappene */
+    background: none; /* Ingen bakgrunnsfarge */
+    color: white; /* Hvit tekstfarge */
+    cursor: pointer; /* Endrer musepekeren til en hånd */
+    font-size: 20px; /* Angir skriftstørrelse */
+    padding: 10px 35px; /* Plass inni knappene */
+    transition: padding 0.3s ease; /* Glatt overgang når man hover */
 }
 
 /* Hover-effekt for knappene */
 .button-group button:hover {
-    padding: 10px 40px; /* Øker padding når musen er over knappen */
-    border-radius: 20px;
-    box-shadow: 5px 10px 15px#125f72; /* legger en shaddow rundt knappene som gir en neon farge vibe */
+    padding: 10px 40px; /* Øker padding ved hover */
+    border-radius: 20px; /* Runde kanter */
+    box-shadow: 0px 0px 15px #125f72; /* Skygge med neon-vibe */
 }
 
 /* Seksjon for bildebanneret */
 .main-section {
-    width: 100%; /* Gjør bildebanneret like bredt som siden */
-    height: 800px; /* Setter en fast høyde for bildebanneret */
-    margin-top: 80px; /* Legger til mellomrom under menylinjen */
-    display: flex; /* Bruker flexbox for sentrering av innholdet */
-    justify-content: center; /* Sentraliserer bildet horisontalt */
-    align-items: center; /* Sentraliserer bildet vertikalt */
-    background-color: #000000; /* Setter bakgrunnsfargen til grå hvis bildet ikke lastes inn */
-    border-color: #afafaf;
+    width: 100%; /* Full bredde */
+    height: 835px; /* Fast høyde */
+    margin-top: 80px; /* Avstand under menylinjen */
+    display: flex; /* Bruker flexbox */
+    justify-content: space-between; /* Plasserer innhold til venstre og høyre */
+    align-items: center; /* Sentraliserer innhold vertikalt */
+    background-color: #131313; /* Mørk grå bakgrunn */
 }
 
+/* Boks for "Get Started"-innhold */
 .get-started-box {
-    padding: 250px;
-    border-radius: 40px;
-    background-color: #125f72;
-    display: flex;
-    justify-content: left;
+    padding: 100px; /* Plass rundt innholdet */
+    border-radius: 40px; /* Runde kanter */
+    background-color: #000000; /* Svart bakgrunn */
+    display: flex; /* Bruker flexbox */
+    justify-content: center; /* Sentraliserer innhold horisontalt */
+    align-items: center; /* Sentraliserer innhold vertikalt */
+    margin: 50px; /* Avstand fra andre elementer */
+    box-shadow: 0px 0px 10px #125f72; /* Skyggeeffekt */
 }
 
-/* Info-seksjonen for tekstinnhold */
-.info-section {
-    padding: 40px; /* Legger til plass rundt tekstinnholdet */
-    text-align: center; /* Sentraliserer teksten */
+/* Container for tekst og knapp */
+.content-container {
+    display: flex; /* Bruker flexbox */
+    justify-content: space-between; /* Plasserer tekst til venstre og knapp til høyre */
+    align-items: center; /* Sentraliserer vertikalt */
+    max-width: 700px; /* Maks bredde for å unngå strekk */
+    width: 100%; /* Full bredde innenfor max-width */
 }
 
-/* Stil for overskrift i info-seksjonen */
-.info-section h2 {
-    margin-bottom: 20px; /* Legger til mellomrom under overskriften */
+/* Stil for teksten */
+.get-started-text {
+    flex: 1; /* Tar opp tilgjengelig plass */
+    color: #ffffff; /* Hvit tekst */
+    font-size: 24px; /* Skriftstørrelse */
 }
 
-/* Stil for avsnitt i info-seksjonen */
-.info-section p {
-    font-size: 18px; /* Angir skriftstørrelse for avsnittsteksten */
-    line-height: 1.6; /* Øker linjeavstanden for bedre lesbarhet */
+/* Stil for knappen */
+.get-started-button {
+    padding: 10px 20px; /* Plass inni knappen */
+    border-radius: 20px; /* Runde kanter */
+    background-color: black; /* Svart bakgrunn */
+    box-shadow: 0px 0px 10px #ffffff; /* Hvit skygge */
+    color: white; /* Hvit tekstfarge */
+    border: none; /* Fjerner kantlinje */
+    cursor: pointer; /* Håndpeker for klikk */
+}
+
+/* Hover-effekt for knappen */
+.get-started-button:hover {
+    border-radius: 20px; /* Runde kanter */
+    background-color: black; /* Svart bakgrunn */
+    box-shadow: 0px 0px 15px #125f72; /* Neon-inspirert skygge */
+    transition: padding 0.3s ease; /* Glatt overgang */
+    color: white; /* Hvit tekstfarge */
 }

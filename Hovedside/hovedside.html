@@ -14,9 +14,16 @@
         <!-- Menylinje øverst på siden -->
         <div class="menu-bar">
             <!-- Tittel for nettsiden -->
-             <img src="/Bilder/Mikael.jpg" alt="Profile Image" class="profile-picture">
-            <a href="/Hovedside/hovedside.html"><button class="tittel-text">Mikael Sebastian berge Süer</button></a>
-
+             <div class="profile-container">
+                <div class="profile-picture">
+                    <img src="/Bilder/Mikael.jpg" alt="Profile Image">
+                </div>
+                <div id="dropdownmenu" class="dropdown-menu">
+                    <button id="view-profile">Se profil</button>
+                    <button id="logout">Logg ut</button>
+                </div>
+               <span class="profile-name">Mikael Sebastian Berge Süer</span>
+            </div>
             <!-- Gruppe med knapper for navigering -->
             <div class="button-group">
                 <!-- Hver knapp er en lenke til en annen side -->
@@ -28,17 +35,20 @@
 
         <!-- Seksjon for bilde/banner øverst på siden -->
         <div class="main-section">
-            <div class="get-started-box">
-                <a href="/Utdanning/utdaninng.html"><button class="get-started-button">Get Started</button></a>
+            <div class="content-container">
+                <div class="get-started-box">
+                    <p class="get-started-text">Her kan du gå for å få informasjon om
+                         hvordan jeg lagde koden og hva referanser
+                          til hjep om koden, og hva jeg brukte lag tid på</p>
+                    <a href="/Utdanning/utdaninng.html">
+                        <button class="get-started-button">Kom i gang</button>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <!-- Seksjon for tekstlig informasjon eller annen innhold -->
-        <div class="info-section">
-            <h2>Velkommen til Min Side</h2> <!-- Overskrift for tekstseksjonen -->
-            <p>Dette er en tekstseksjon der du kan legge til informasjon om deg selv eller hva siden handler om.</p> <!-- Eksempeltekst som kan tilpasses -->
-        </div>
 
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
