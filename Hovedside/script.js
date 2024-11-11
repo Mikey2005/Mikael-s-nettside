@@ -19,5 +19,5 @@ viewProfileButton.addEventListener("click", () => {
 });
 
 logoutButton.addEventListener("click", () => {
-    window.location.href = "/loggut.html"
+    window.location.href = "/Loginn/loginn-side.html"
 })

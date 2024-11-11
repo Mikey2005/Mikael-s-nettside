@@ -122,7 +122,7 @@ body {
 /* Seksjon for bildebanneret */
 .main-section {
     width: 100%; /* Full bredde */
-    height: 835px; /* Fast høyde */
+    height: 1147px; /* Fast høyde */
     margin-top: 80px; /* Avstand under menylinjen */
     display: flex; /* Bruker flexbox */
     justify-content: space-between; /* Plasserer innhold til venstre og høyre */
@@ -132,7 +132,7 @@ body {
 
 /* Boks for "Get Started"-innhold */
 .get-started-box {
-    padding: 100px; /* Plass rundt innholdet */
+    padding: 200px; /* Plass rundt innholdet */
     border-radius: 40px; /* Runde kanter */
     background-color: #000000; /* Svart bakgrunn */
     display: flex; /* Bruker flexbox */
@@ -147,7 +147,7 @@ body {
     display: flex; /* Bruker flexbox */
     justify-content: space-between; /* Plasserer tekst til venstre og knapp til høyre */
     align-items: center; /* Sentraliserer vertikalt */
-    max-width: 700px; /* Maks bredde for å unngå strekk */
+    max-width: 900px; /* Maks bredde for å unngå strekk */
     width: 100%; /* Full bredde innenfor max-width */
 }
 

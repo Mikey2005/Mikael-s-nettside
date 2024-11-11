@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body>
+    <h2>Enter Your Details</h2>
+
+    <label for="text1">username:</label>
+    <input type="text" id="text1" name="text1"><br><br>
+
+    <label for="text2">password:</label>
+    <input type="text" id="text2" name="text2"><br><br>
+
+    <button type="button" onclick="Login()" id="Login">Submit</button>
+
+    <p id="output"></p>
+
+
+    <script>
+        const CredentialsUsername = ["mikael", "miguel", "miguela"]
+        const CredentilasPassword = ["passord1", "passord12", "passord123"]
+        const loginButton = document.getElementById("login");
+
+        function Login() {
+            const username = document.getElementById("text1").value;
+            const password = document.getElementById("text2").value;
+            
+            let isValid = false;
+
+            CredentialsUsername.forEach((storedUsername, index) => {
+
+                if (storedUsername === username && CredentilasPassword[index] === password) {
+                    isValid = true;
+                }
+            });
+
+            if (isValid) {
+                    window.location.href = "/profil/profilside.html";
+
+            } else {
+                document.getElementById("output").innerText = "Invalid username of password!";
+            }
+        }
+    </script>
+
+</body>
+</html>
