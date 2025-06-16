@@ -10,11 +10,19 @@
     <div class="container">
         <div class="profile-container">
             <img class="profile-picture" src="/Bilder/Mikael.jpg">
-            <span class="profile-name">Mikael Sebastian Berge Süer</span>
+            <span class="profile-name" id="profileName"></span>
         </div>
-        <div class="profile-section">
+        <div class="profile-section" id="profileInfo">
             <h1>Din Profil</h1>
         </div>
+        <form id="updateForm" class="profile-form" onsubmit="return false;">
+            <label for="job">Job:</label>
+            <input type="text" id="job" name="job">
+            <label for="education">Education:</label>
+            <input type="text" id="education" name="education">
+            <button type="submit">Save</button>
+        </form>
     </div>
+    <script src="profilScript.js"></script>
 </body>
 </html>

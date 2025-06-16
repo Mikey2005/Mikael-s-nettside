@@ -1,27 +1,19 @@
-        const CredentialsUsername = ["mikael", "miguel", "miguela"];
-        const CredentialsPassword = ["passord1", "passord12", "passord123"];
-
-function handleLogin() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    let isValid = false;
-
-    // Check if the username and password match
-    CredentialsUsername.forEach((storedUsername, index) => {
-        if (storedUsername === username && CredentialsPassword[index] === password) {
-            isValid = true;
+async function handleLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    try {
+        const res = await fetch('/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        });
+        if (res.ok) {
+            window.location.href = '/profil/profilside.html';
+        } else {
+            const data = await res.json();
+            document.getElementById('output').innerText = data.error || 'Login failed';
         }
-    });
-
-    // Redirect or show error message
-    if (isValid) {
-        console.log("Login successful!");
-        window.location.href = "/profil/profilside.html";
-    } else {
-        document.getElementById("output").innerText = "Invalid username or password!";
-        console.log("Login failed")
+    } catch (err) {
+        document.getElementById('output').innerText = 'Network error';
     }
 }
-
-console.log("Hello World!");
