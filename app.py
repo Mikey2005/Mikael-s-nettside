@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, session
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import os
+from math import ceil
 
 app = Flask(__name__)
 app.secret_key = 'change_this_secret'
@@ -103,6 +104,54 @@ def profile():
 def logout():
     session.pop('username', None)
     return jsonify({'message': 'Logged out'})
+
+
+# --- Lysfart kalkulator ---
+C = 299_792_458  # meters per second
+LIGHT_YEAR_METERS = 9.461e15
+
+
+def simulate_lightspeed(speed_percent: float, passengers: int, distance_ly: float):
+    """Calculate travel data for a spaceship."""
+    base_speed = speed_percent / 100 * C
+    rocket_count = passengers * 15
+    cooling_fraction = 0.2
+    effective_speed = base_speed * ((1 - cooling_fraction) + cooling_fraction * 0.5)
+    total_distance = distance_ly * LIGHT_YEAR_METERS
+    total_time_seconds = total_distance / effective_speed
+    log = [
+        f'Fart satt til {speed_percent}% av lyset ({base_speed:.0f} m/s).',
+        f'{rocket_count} raketter installert.',
+        '20% av rakettene må kjøles ned underveis.'
+    ]
+    log.append(
+        f'Effektiv fart blir {effective_speed:.0f} m/s. Estimert reisetid '
+        f'{ceil(total_time_seconds)} sekunder.'
+    )
+    return {
+        'base_speed': base_speed,
+        'rocket_count': rocket_count,
+        'effective_speed': effective_speed,
+        'total_time_seconds': total_time_seconds,
+        'log': log,
+    }
+
+
+@app.route('/api/lightspeed', methods=['POST'])
+def lightspeed_endpoint():
+    data = request.get_json(force=True)
+    try:
+        speed_percent = float(data.get('speed_percent', 0))
+        passengers = int(data.get('passengers', 2))
+        distance_ly = float(data.get('distance', 1))
+    except (TypeError, ValueError):
+        return jsonify({'error': 'Invalid input'}), 400
+
+    if speed_percent <= 0 or passengers < 2 or distance_ly <= 0:
+        return jsonify({'error': 'Invalid parameters'}), 400
+
+    result = simulate_lightspeed(speed_percent, passengers, distance_ly)
+    return jsonify(result)
 
 
 if __name__ == '__main__':
