@@ -2,8 +2,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgb(34, 34, 34);
-    height: 100%;
     min-height: 100vh;
+    font-family: Arial, sans-serif;
 }
 
 .container {
@@ -13,23 +13,23 @@ body {
     min-height: 100vh;
 }
 
-label {
+label, h2, p {
     color: white;
 }
+
 .login-form {
     display: flex;
     flex-direction: column;
     width: 300px;
-    padding: 100px;
+    padding: 40px;
     background-color: rgb(0, 0, 0);
     border-radius: 20px;
     box-shadow: 0px 0px 15px #125f72;
-
 }
 
 .login-form input {
-    margin-bottom: 5px;
-    padding: 5px;
+    margin-bottom: 10px;
+    padding: 8px;
     font-weight: bold;
 }
 
@@ -53,4 +53,10 @@ label {
     color: red;
     font-weight: bold;
     text-align: center;
+}
+.register-link {
+    text-align: center;
+}
+.register-link a {
+    color: #1e90ff;
 }
